@@ -4,7 +4,6 @@ import _ from 'lodash';
 const INITIAL_STATE={};
 
 export default (state=INITIAL_STATE, action) => {
-    console.log(action.type)
     switch(action.type) {
         case CREATE_STREAM:
             return {...state, [action.payload.id]: action.payload};
@@ -13,7 +12,6 @@ export default (state=INITIAL_STATE, action) => {
         case FETCH_STREAM:
             return {...state, [action.payload.id]: action.payload};
         case FETCH_STREAMS:
-            console.log("HI");
             return {...state, ..._.mapKeys(action.payload, 'id')};
         case DELETE_STREAM:
             return _.omit(state, [action.payload]);

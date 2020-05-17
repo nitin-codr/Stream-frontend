@@ -6,12 +6,26 @@ class StreamList extends Component {
     componentDidMount = () => {
         this.props.fetchStreams();
     }
+    renderStreams = () => {
+        return <ul>
+            {this.props.streams.map((stream) => {
+                return <li key={stream.id}>
+                    <h3>{stream.title}</h3>
+                    <p>{stream.description}</p>
+                </li>
+            })}
+        </ul>
+    }
     render() {
-        return <div>StreamList</div>
+        return <div>{this.renderStreams()}</div>
 
     }
 }
 
-export default connect(null, {
+const mapStateToProps = (state) => {
+    return {streams: Object.values(state.streams)};
+}
+
+export default connect(mapStateToProps, {
     fetchStreams
 }) (StreamList);
