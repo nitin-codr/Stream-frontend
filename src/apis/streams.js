@@ -1,5 +1,5 @@
 import axios from 'axios';
 
-export default streams = axios.create({
-    baseURL: "http://localhost3001/"
+export default axios.create({
+    baseURL: "http://localhost:3001/"
 })
