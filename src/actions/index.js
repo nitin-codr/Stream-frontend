@@ -40,7 +40,7 @@ export const fetchStream = (id) => async dispatch => {
 }
 
 export const fetchStreams = () => async dispatch => {
-    const response = await streams.post('/streams');
+    const response = await streams.get('/streams');
     dispatch({
         type: FETCH_STREAMS,
         payload: response.data
@@ -48,7 +48,7 @@ export const fetchStreams = () => async dispatch => {
 }
 
 export const deleteStream = (id) => async dispatch => {
-    await streams.post(`/streams/${id}`);
+    await streams.delete(`/streams/${id}`);
     dispatch({
         type: DELETE_STREAM,
         payload: id
