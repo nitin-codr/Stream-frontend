@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {fetchStreams} from '../../actions';
+import { Link } from 'react-router-dom';
 
 class StreamList extends Component {
     componentDidMount = () => {
@@ -20,6 +21,17 @@ class StreamList extends Component {
             );
         };
     };
+    renderCreate = () => {
+        if(this.props.isSignedIn) {
+            return (
+                <div style={{'textAlign': "right"}}>
+                    <Link to = "/streams/new" className="ui button green">
+                        Create Streams
+                    </Link>
+                </div>
+            )
+        }
+    }
     renderStreams = () => {
         return this.props.streams.map((stream) => {
                 return (
@@ -43,6 +55,7 @@ class StreamList extends Component {
                 <div className="ui celled list">
                     {this.renderStreams()}
                 </div>
+                {this.renderCreate()}
             </div>
         )
 
