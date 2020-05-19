@@ -18,6 +18,9 @@ class StreamShow extends Component {
     componentDidUpdate = () => {
         this.buildPlayer();
     }
+    componentWillUnmount = () => {
+        this.player.destroy();
+    }
     buildPlayer = () => {
         const {id} = this.props.match.params;
         if(this.player || !this.props.stream) {
