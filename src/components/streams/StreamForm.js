@@ -28,10 +28,17 @@ class StreamForm extends Component {
         this.props.onSubmit(formValues);
     }
     render() {
+        let title="";
+        let description="";
+        if(this.props.initialValues) {
+            title=this.props.initialValues.title;
+            description=this.props.initialValues.description;
+
+        }
         return (
             <form className="ui form error" onSubmit={this.props.handleSubmit(this.onSubmit)}>
-                <Field name="title" component={this.renderInput} label="Enter Title"/>
-                <Field name="description" component = {this.renderInput} label="Enter Description"/>
+                <Field name="title" value={title} component={this.renderInput} label="Enter Title"/>
+                <Field name="description" value={description} component = {this.renderInput} label="Enter Description"/>
                 <button className="ui button primary" >Submit</button>
             </form>
         ) 
