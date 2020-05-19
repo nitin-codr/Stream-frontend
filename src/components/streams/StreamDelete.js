@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {fetchStream} from '../../actions';
+import Modal from '../../Modal';
 
 class StreamDelete extends Component {
     componentDidMount = () => {
@@ -10,6 +11,7 @@ class StreamDelete extends Component {
         console.log(this.props.stream);
         return (
             <div>
+                <Modal />
                 {this.props.stream.title}
                 <br/>
                 {this.props.stream.description}
