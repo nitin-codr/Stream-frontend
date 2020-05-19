@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import {fetchStream} from '../../actions';
 import Modal from '../../Modal';
@@ -9,10 +9,10 @@ class StreamDelete extends Component {
     }
     render() {
         const actions=(
-            <div className="actions">
+            <Fragment>
                 <button className="ui button negative">Delete</button>
                 <button className="ui button">Cancel</button>
-            </div>
+            </Fragment>
         )
         console.log(this.props.stream);
         return (
