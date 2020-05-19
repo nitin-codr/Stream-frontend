@@ -8,10 +8,20 @@ class StreamDelete extends Component {
         this.props.fetchStream(this.props.match.params.id);
     }
     render() {
+        const actions=(
+            <div className="actions">
+                <button className="ui button negative">Delete</button>
+                <button className="ui button">Cancel</button>
+            </div>
+        )
         console.log(this.props.stream);
         return (
             <div>
-                <Modal />
+                <Modal 
+                    title="Delete Stream"
+                    content="Are you sure you want to delete this stream?"
+                    actions={actions}
+                />
                 {this.props.stream.title}
                 <br/>
                 {this.props.stream.description}
